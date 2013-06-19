@@ -128,6 +128,11 @@ class Result(models.Model):
             wsp = self.get_or_create_whisper()
             if isinstance(self.result, basestring) or self.result_type:
                 value = self.cleaned_result
+                if isinstance(value, basestring):
+                    if self.failed:
+                        value = 0
+                    else:
+                        value = 1
             else:
                 value = self.result
             wsp.update(self.timestamp, value)

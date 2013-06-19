@@ -92,3 +92,6 @@ class TypeTranslate(object):
 
     def to_float(self, value):
         return float(value)
+
+    def to_raw_string(self, value):
+        return str(value)
